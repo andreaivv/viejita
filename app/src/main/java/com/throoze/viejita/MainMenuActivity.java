@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class MenuPrincipal extends Activity {
+public class MainMenuActivity extends Activity {
 
     private Button vs_computer;
     private Button vs_human;
@@ -26,7 +26,7 @@ public class MenuPrincipal extends Activity {
 
         TextView text = (TextView) this.findViewById(R.id.welcome);
 
-        text.setText("Bienvenido a la vieja");
+        text.setText("Bienvenido a la tic_tac_toe");
         text.setTextSize(30.0f);
         text.setGravity(Gravity.CENTER_HORIZONTAL);
 
@@ -44,8 +44,8 @@ public class MenuPrincipal extends Activity {
 
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(MenuPrincipal.this, Vieja.class);
-                    intent.putExtra(Vieja.KEY_VS,Vieja.VS_COMPUTER);
+                    Intent intent = new Intent(MainMenuActivity.this, TicTacToeActivity.class);
+                    intent.putExtra(TicTacToeActivity.KEY_VS, TicTacToeActivity.VS_COMPUTER);
                     startActivity(intent);
                 }
             });
@@ -55,8 +55,8 @@ public class MenuPrincipal extends Activity {
 
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(MenuPrincipal.this, Vieja.class);
-                    intent.putExtra(Vieja.KEY_VS,Vieja.VS_HUMAN);
+                    Intent intent = new Intent(MainMenuActivity.this, TicTacToeActivity.class);
+                    intent.putExtra(TicTacToeActivity.KEY_VS, TicTacToeActivity.VS_HUMAN);
                     startActivity(intent);
                 }
             });
@@ -87,6 +87,7 @@ public class MenuPrincipal extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Toast.makeText(getApplicationContext(),getResources().getText(R.string.msg_not_implemented),Toast.LENGTH_LONG).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
