@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 public class MainMenuActivity extends Activity {
 
+    private static final int TIC_TAC_TOE = 0;
     private Button vs_computer;
     private Button vs_human;
     private Button instructions;
@@ -22,11 +23,11 @@ public class MainMenuActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.activity_menu_principal);
+        this.setContentView(R.layout.activity_main_menu);
 
         TextView text = (TextView) this.findViewById(R.id.welcome);
 
-        text.setText("Bienvenido a la tic_tac_toe");
+        text.setText(getResources().getText(R.string.welcome));
         text.setTextSize(30.0f);
         text.setGravity(Gravity.CENTER_HORIZONTAL);
 
@@ -46,7 +47,7 @@ public class MainMenuActivity extends Activity {
                 public void onClick(View v) {
                     Intent intent = new Intent(MainMenuActivity.this, TicTacToeActivity.class);
                     intent.putExtra(TicTacToeActivity.KEY_VS, TicTacToeActivity.VS_COMPUTER);
-                    startActivity(intent);
+                    startActivityForResult(intent,TIC_TAC_TOE);
                 }
             });
         }
@@ -57,7 +58,7 @@ public class MainMenuActivity extends Activity {
                 public void onClick(View v) {
                     Intent intent = new Intent(MainMenuActivity.this, TicTacToeActivity.class);
                     intent.putExtra(TicTacToeActivity.KEY_VS, TicTacToeActivity.VS_HUMAN);
-                    startActivity(intent);
+                    startActivityForResult(intent,TIC_TAC_TOE);
                 }
             });
         }
@@ -76,7 +77,7 @@ public class MainMenuActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_principal, menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
@@ -91,5 +92,25 @@ public class MainMenuActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case (TIC_TAC_TOE) : {
+                if (resultCode == Activity.RESULT_OK) {
+                    int score_p1 = data.getIntExtra(TicTacToeActivity.KEY_SCORE_P1,0);
+                    int score_p2 = data.getIntExtra(TicTacToeActivity.KEY_SCORE_P2,0);
+                    Toast.makeText(
+                            getApplicationContext(),
+                            getResources().getText(R.string.msg_game_over)+
+                                    " " + score_p1 + " - " + score_p2 +".",
+                            Toast.LENGTH_LONG
+                    ).show();
+                }
+                break;
+            }
+        }
     }
 }

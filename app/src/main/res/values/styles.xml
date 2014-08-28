@@ -5,4 +5,34 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="box_style">
+        <item name="android:layout_width">@dimen/box_size</item>
+        <item name="android:layout_height">@dimen/box_size</item>
+        <item name="android:scaleType">fitStart</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_marginLeft">@dimen/box_h_padding</item>
+        <item name="android:layout_marginTop">@dimen/box_v_padding</item>
+        <item name="android:layout_marginRight">@dimen/box_h_padding</item>
+        <item name="android:layout_marginBottom">@dimen/box_v_padding</item>
+    </style>
+
+    <style name="empty_style" parent="box_style">
+    </style>
+
+    <style name="x_style" parent="box_style">
+        <item name="android:src">@drawable/x</item>
+    </style>
+
+    <style name="o_style" parent="box_style">
+        <item name="android:src">@drawable/o</item>
+    </style>
+
+    <style name="x_h_style" parent="box_style">
+        <item name="android:src">@drawable/x_high</item>
+    </style>
+
+    <style name="o_h_style" parent="box_style">
+        <item name="android:src">@drawable/o_high</item>
+    </style>
+
 </resources>

@@ -2,11 +2,19 @@
 <resources>
 
     <string name="app_name">Viejita</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_vieja">La Vieja</string>
-    <string name="msg_not_implemented">Esta sección no se ha implementado todavía.</string>
-    <string name="msg_vs_computer">Juegas contra la computadora!</string>
-    <string name="msg_vs_human">Juegas contra un compañero!</string>
+    <string name="title_activity_vieja">Tic-Tac-Toe</string>
+    <string name="welcome">Welcome to Tic-Tac-Toe!</string>
+    <string name="btn_vs_computer">New game Vs. Computer</string>
+    <string name="btn_vs_human">New game Vs. Player</string>
+    <string name="btn_how_to_play">How to play...</string>
+    <string name="msg_not_implemented">This section is not yet implemented.</string>
+    <string name="msg_vs_computer">You play against the computer!</string>
+    <string name="msg_vs_human">You play against a partner!</string>
+    <string name="msg_game_over">Game over!</string>
+    <string name="msg_ask_restart">Do you wish to restart the game?</string>
 
 </resources>
